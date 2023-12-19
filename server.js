@@ -4,7 +4,7 @@ app.use(express.json());
 
 // .ENV
 import "dotenv/config.js";
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 9001
 
 // Cors
 import cors from 'cors';

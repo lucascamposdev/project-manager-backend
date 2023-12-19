@@ -21,6 +21,9 @@ import {
 } from '../middlewares/ProjectsValidation.js'
 
 /* Endpoints Prefix: /api/projects ... */
+router.get('/test', (req, res) =>{
+    res.send('Ok')
+})
 router.get('/', isLogged, allProjects)
 router.get('/:id', isLogged, projectById)
 router.get('/tasks/:id', isLogged, projectTasks)
