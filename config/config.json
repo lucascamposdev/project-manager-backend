@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "rlnqchka",
+    "password": "r1RE_nLRI5oHmtFkypY7dO387O4wc55z",
+    "database": "project-manager-db",
+    "host": "postgres://rlnqchka:r1RE_nLRI5oHmtFkypY7dO387O4wc55z@silly.db.elephantsql.com/rlnqchka",
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
