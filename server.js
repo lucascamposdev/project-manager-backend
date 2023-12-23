@@ -3,7 +3,11 @@ const app = express();
 
 // Cors
 import cors from 'cors';
-app.use(cors());
+app.use(cors({
+    origin: '*', // ou você pode especificar a origem do seu frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // habilitar o envio de cookies
+  }));
 
 app.use(express.json());
 
