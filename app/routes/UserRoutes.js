@@ -1,5 +1,6 @@
 import { Router } from "express";
 const router = Router();
+import cors from 'cors'
 
 import isLogged from "../middlewares/isLogged.js";
 import isAdmin from '../middlewares/isAdmin.js'
