@@ -70,7 +70,7 @@ export const register = async (req, res) =>{
         return
     }
 
-    return res.status(200).json({
+    res.status(200).json({
         id: newUser.id,
         token: generateToken(newUser.id)
     })
