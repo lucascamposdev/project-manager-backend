@@ -13,6 +13,7 @@ import {
 
 import {
     userById,
+    profile,
     register,
     login,
     update,
@@ -21,6 +22,7 @@ import {
 
 /* Endpoints Prefix: /api/users ... */
 router.get('/:id', isLogged, userById)
+router.get('/profile/:id', isLogged, profile)
 router.post('/register', userCreateValidation(), validate, register)
 router.post('/login', userLoginValidation(), validate, login)
 router.put('/', isLogged, userUpdateValidation(), validate, update)

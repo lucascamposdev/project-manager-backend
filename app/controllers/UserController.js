@@ -29,6 +29,24 @@ export const userById = async(req, res) =>{
     })
 }
 
+export const profile = async(req, res) =>{
+    const { id } = req.params
+
+    const found = await User.findByPk(id, 
+        {include: ['tasks', 'projects'], 
+        attributes: { exclude: ['password', 'tasks', 'projects'] }
+    })
+
+    if(!found){
+        res.status(404).json({message:[ "Usuário não encontrado." ]})
+        return
+    }
+
+    res.status(200).json({
+        user: found
+    })
+}
+
 export const register = async (req, res) =>{  
     const { name, email, password } = req.body
 
