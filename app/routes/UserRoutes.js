@@ -24,6 +24,7 @@ import {
 router.get('/:id', isLogged, userById)
 router.get('/profile/:id', isLogged, profile)
 router.post('/register', userCreateValidation(), validate, register)
+router.options('/register', cors());
 router.post('/login', userLoginValidation(), validate, login)
 router.put('/', isLogged, userUpdateValidation(), validate, update)
 router.patch('/:id', isLogged, isAdmin, changeAccess)
