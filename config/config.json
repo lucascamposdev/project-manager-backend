@@ -1,0 +1,23 @@
+{
+    "development": {
+      "username": "rlnqchka",
+      "password": "r1RE_nLRI5oHmtFkypY7dO387O4wc55z",
+      "database": "rlnqchka",
+      "host": "silly.db.elephantsql.com",
+      "dialect": "postgres",
+      "dialectOptions": {
+        "ssl": false
+      }
+    },
+    "test": {
+    "username": "rlnqchka",
+    "password": "r1RE_nLRI5oHmtFkypY7dO387O4wc55z",
+    "database": "test",
+    "host": "postgres://rlnqchka:r1RE_nLRI5oHmtFkypY7dO387O4wc55z@silly.db.elephantsql.com/rlnqchka",
+    "dialect": "postgres"
+    },
+    "production": {
+      "use_env_variable": "DB_URL",
+      "dialect": "postgres"
+    }
+  }
