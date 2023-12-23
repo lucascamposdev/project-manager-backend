@@ -8,7 +8,14 @@ const PORT = process.env.PORT || 9001
 
 // Cors
 import cors from 'cors';
-app.use(cors());
+
+const corsOptions = {
+    origin: 'https://project-manager-frontend.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, 
+  };
+
+app.use(cors(corsOptions));
 
 // Routes
 import router from './app/routes/Routes.js'
