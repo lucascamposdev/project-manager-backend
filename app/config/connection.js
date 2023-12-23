@@ -4,7 +4,7 @@ pg.defaults.ssl = true;
 
 const DB_URL = process.env.DB_URL
 
-export const connection = new Sequelize(DB_URL, {
+const connection = new Sequelize(DB_URL, {
     dialect: 'postgres',
     logging: false,
 })
