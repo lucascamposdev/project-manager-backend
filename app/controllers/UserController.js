@@ -32,9 +32,8 @@ export const userById = async(req, res) =>{
 export const profile = async(req, res) =>{
     const { id } = req.params
 
-    const found = await User.findByPk(id, 
-        {include: ['tasks', 'projects'], 
-        attributes: { exclude: ['password', 'tasks', 'projects'] }
+    const found = await User.findByPk(id, {
+        attributes: ['name', 'email', 'access'],
     })
 
     if(!found){
