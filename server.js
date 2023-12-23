@@ -1,13 +1,9 @@
 import express from "express";
 const app = express();
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://project-manager-frontend.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-    res.header('Access-Control-Allow-Credentials', true);
-    next();
-  });
-
+// Cors
+import cors from 'cors';
+app.use(cors());
 
 app.use(express.json());
 
