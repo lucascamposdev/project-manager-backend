@@ -33,7 +33,7 @@ export const profile = async(req, res) =>{
     const { id } = req.params
 
     const found = await User.findByPk(id, {
-        attributes: ['name', 'email', 'access'],
+        attributes: ['id', 'name', 'email', 'access'],
     })
 
     if(!found){
