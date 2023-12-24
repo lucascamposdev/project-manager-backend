@@ -3,7 +3,7 @@ import Task from "../models/Task.js"
 
 export const allProjects = async(req, res) =>{
     const project = await Project.findAll({
-        order: [['name', 'ASC']],
+        order: [['name', 'DESC']],
         include: { model: Task, as: 'tasks' },
       });
 
