@@ -3,9 +3,9 @@ const app = express();
 
 // Cors
 import cors from 'cors';
-app.use(cors());
 
 app.use(express.json());
+app.use(cors());
 
 // .ENV
 import "dotenv/config.js";
