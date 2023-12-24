@@ -5,7 +5,7 @@ const app = express();
 import cors from 'cors';
 app.use(cors({
     origin: '*', // ou você pode especificar a origem do seu frontend
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true, // habilitar o envio de cookies
   }));
 
