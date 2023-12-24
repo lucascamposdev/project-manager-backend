@@ -70,6 +70,10 @@ export const register = async (req, res) =>{
         return
     }
 
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
     res.status(200).json({
         id: newUser.id,
         token: generateToken(newUser.id)
@@ -92,7 +96,7 @@ export const login = async (req, res) =>{
         return
     }
 
-    return res.status(200).json({
+    res.status(200).json({
     id: foundUser.id,
     token: generateToken(foundUser.id)
     })
