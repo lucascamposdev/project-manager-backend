@@ -4,12 +4,7 @@ const app = express();
 // Cors
 import cors from 'cors';
 
-app.use(cors({
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  credentials: true,
-  optionsSuccessStatus: 204,
-}));
+app.use(cors());
 app.use(express.json());
 
 // .ENV
