@@ -4,8 +4,13 @@ const app = express();
 // Cors
 import cors from 'cors';
 
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  credentials: true,
+  optionsSuccessStatus: 204,
+}));
 app.use(express.json());
-app.use(cors());
 
 // .ENV
 import "dotenv/config.js";
