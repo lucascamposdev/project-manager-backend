@@ -47,9 +47,11 @@ export const profile = async(req, res) =>{
 }
 
 export const register = async (req, res) =>{  
-    const { name, email, password } = req.body
+    const { name, email, password, confirmPassword } = req.body
 
+    console.log(confirmPassword)
     const alreadyExist = await User.findOne({ where: { email }})
+
     if(alreadyExist){
         res.status(422).json({message:[ "E-mail já cadastrado." ]})
         return
