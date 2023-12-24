@@ -2,7 +2,7 @@ import Project from "../models/Project.js"
 import Task from "../models/Task.js"
 
 export const allProjects = async(req, res) =>{
-    const project = await Project.findAll({order: [['name', 'DESC']]})
+    const project = await Project.findAll({order: [['name', 'ASC']]})
 
     if(!project){
         res.status(422).json({ message: ["Ocorreu um erro, tente mais tarde."] })
