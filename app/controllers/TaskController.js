@@ -80,18 +80,21 @@ export const applyOnTask = async(req, res) =>{
     }
 
     found.userId = reqUser.id
-    found.status = 1
-    found.save()
 
     res.status(200).json({
         project: found
     })
 }
 
-export const finalize = async(req, res) =>{
+export const changeTaskStatus = async(req, res) =>{
 
     const { id } = req.params
-    const reqUser = req.user
+    const{ newStatus } = req.body
+
+    if(newStatus > 3 || newStatus < 0 ){
+        res.status(422).json({message:[ "Tipo de status não suportado." ]})
+        return
+    }
     
     const found = await Task.findByPk(id)
 
@@ -100,12 +103,7 @@ export const finalize = async(req, res) =>{
         return
     }
 
-    if(found.userId != reqUser.id){
-        res.status(422).json({message:[ "Apenas o responsável pela Task pode finalizá-la." ]})
-        return
-    }
-
-    found.status = 2
+    found.status = newStatus
     found.save()
 
     res.status(200).json({

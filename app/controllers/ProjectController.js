@@ -32,7 +32,10 @@ export const projectById = async(req, res) =>{
 export const projectTasks = async(req, res) =>{
     const { id } = req.params
 
-    const found = await Task.findAll({where: {projectId: id}, order: [['createdAt', 'ASC']]})
+    const found = await Task.findAll({
+        where: { projectId: id },
+        order: [['updatedAt', 'ASC']]
+      });
 
     if(!found){
         res.status(404).json({message:[ "Projeto não encontrado." ]})
