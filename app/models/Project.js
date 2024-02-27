@@ -6,9 +6,6 @@ const Project = connection.define("projects" , {
     name:{
         type: Sequelize.STRING
     },
-    client:{
-        type: Sequelize.STRING
-    },
     status:{
         type: Sequelize.INTEGER
     }

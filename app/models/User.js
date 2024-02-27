@@ -7,6 +7,9 @@ const User = connection.define("users" , {
     name:{
         type: Sequelize.STRING
     },
+    lastname:{
+        type: Sequelize.STRING
+    },
     email:{
         type: Sequelize.STRING
     },

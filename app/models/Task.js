@@ -10,6 +10,12 @@ const Task = connection.define("tasks" , {
     },
     status:{
         type: Sequelize.INTEGER
+    },
+    priority:{
+        type: Sequelize.INTEGER
+    },
+    statusChangedAt:{
+        type: Sequelize.DATE
     }
 });
 
