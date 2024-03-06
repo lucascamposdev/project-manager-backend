@@ -10,7 +10,9 @@ import {
     create,
     deleteTask,
     applyOnTask,
-    changeTaskStatus
+    changeTaskStatus,
+    update,
+    leaveTask
  } from "../controllers/TaskController.js";
  
 import { 
@@ -22,6 +24,8 @@ router.get('/:id', isLogged, getTask)
 router.post('/:id', isLogged, checkAcess, taskCreateValidation(), validate, create)
 router.delete('/:id', isLogged, checkAcess, deleteTask)
 router.patch('/apply/:id', isLogged, applyOnTask)
+router.patch('/leave/:id', isLogged, leaveTask)
 router.patch('/change/:id', isLogged, changeTaskStatus)
+router.patch('/update/:id', isLogged, update)
 
 export default router;

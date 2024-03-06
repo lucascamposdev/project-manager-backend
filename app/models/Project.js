@@ -5,9 +5,6 @@ import Task from './Task.js'
 const Project = connection.define("projects" , {
     name:{
         type: Sequelize.STRING
-    },
-    status:{
-        type: Sequelize.INTEGER
     }
 });
 

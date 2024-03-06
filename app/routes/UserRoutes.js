@@ -17,7 +17,6 @@ import {
     register,
     login,
     update,
-    changeAccess
 }   from '../controllers/UserController.js'
 
 /* Endpoints Prefix: /api/users ... */
@@ -26,6 +25,5 @@ router.get('/profile/:id', isLogged, profile)
 router.post('/register', userCreateValidation(), validate, register)
 router.post('/login', userLoginValidation(), validate, login)
 router.put('/', isLogged, userUpdateValidation(), validate, update)
-router.patch('/:id', isLogged, isAdmin, changeAccess)
 
 export default router;

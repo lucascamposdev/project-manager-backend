@@ -14,7 +14,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      lastname: {
+      lastName: {
         type: Sequelize.STRING
       },
       email: {
@@ -46,9 +46,6 @@ module.exports = {
       },
       name:{
         type: Sequelize.STRING
-      },
-      status:{
-          type: Sequelize.INTEGER
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -108,6 +105,11 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       statusChangedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      deliverTime: {
+        allowNull: true,
         type: Sequelize.DATE
       },
       createdAt: {

@@ -7,6 +7,11 @@ export const userCreateValidation = () =>{
             .withMessage("Nome obrigatório.")
             .isLength({ min: 3 })
             .withMessage("Nome deve ter no mínimo 3 caracteres."),
+        body("lastName")
+            .isString()
+            .withMessage("Sobrenome obrigatório.")
+            .isLength({ min: 3 })
+            .withMessage("Sobrenome deve ter no mínimo 3 caracteres."),
         body("email")
             .isString()
             .withMessage("E-mail obrigatório.")

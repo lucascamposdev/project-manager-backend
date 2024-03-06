@@ -7,7 +7,7 @@ const User = connection.define("users" , {
     name:{
         type: Sequelize.STRING
     },
-    lastname:{
+    lastName:{
         type: Sequelize.STRING
     },
     email:{
@@ -22,7 +22,7 @@ const User = connection.define("users" , {
 });
 
 User.hasMany(Task, { as: 'tasks', foreignKey: 'userId' });
-Task.belongsTo(User, { foreignKey: 'userId' });
+Task.belongsTo(User, { foreignKey: 'userId', as: 'responsable' });
 
 User.hasMany(Project, { as: 'projects', foreignKey: 'userId' });
 Project.belongsTo(User, { foreignKey: 'userId' });

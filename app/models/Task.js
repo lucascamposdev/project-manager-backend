@@ -15,6 +15,11 @@ const Task = connection.define("tasks" , {
         type: Sequelize.INTEGER
     },
     statusChangedAt:{
+        allowNull: true,
+        type: Sequelize.DATE
+    },
+    deliverTime:{
+        allowNull: true,
         type: Sequelize.DATE
     }
 });

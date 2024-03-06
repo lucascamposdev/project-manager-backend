@@ -33,7 +33,7 @@ export const profile = async(req, res) =>{
     const { id } = req.params
 
     const found = await User.findByPk(id, {
-        attributes: ['id', 'name', 'email', 'access'],
+        attributes: ['id', 'name', 'lastName', 'email', 'access'],
     })
 
     if(!found){
@@ -47,7 +47,7 @@ export const profile = async(req, res) =>{
 }
 
 export const register = async (req, res) =>{  
-    const { name, email, password } = req.body
+    const { name, lastName, email, password } = req.body
 
     const alreadyExist = await User.findOne({ where: { email }})
 
@@ -61,6 +61,7 @@ export const register = async (req, res) =>{
 
     const newUser = await User.create({
         name,
+        lastName,
         email,
         password: passwordHash,
         access: 1
@@ -125,24 +126,5 @@ export const update = async(req, res) =>{
     res.status(200).json({
         user: reqUser,
         message: ['Usuário atualizado com sucesso']
-    })
-}
-
-export const changeAccess = async(req, res) =>{
-    const { id } = req.params
-    
-    const found = await User.findByPk(id)
-
-    if(!found){
-        res.status(404).json({message:[ "Usuário não encontrado." ]})
-        return
-    }
-
-    found.access = found.access == 1 ? 2 : 1
-    found.save()
-
-    res.status(200).json({
-        user: found,
-        message: [`Acesso de ${found.name} alterado com sucesso!`]
     })
 }

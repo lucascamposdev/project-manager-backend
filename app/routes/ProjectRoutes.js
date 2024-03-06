@@ -12,7 +12,6 @@ import {
     create,
     deleteProject,
     update,
-    finalize
 } from "../controllers/ProjectController.js";
 
 import { 
@@ -30,6 +29,5 @@ router.get('/tasks/:id', isLogged, projectTasks)
 router.post('/', isLogged, checkAcess, projectCreateValidation(), validate, create)
 router.delete('/:id', isLogged, checkAcess, deleteProject)
 router.put('/:id', isLogged, checkAcess, projectUpdateValidation(), validate, update)
-router.patch('/:id', isLogged, checkAcess, finalize)
 
 export default router;
