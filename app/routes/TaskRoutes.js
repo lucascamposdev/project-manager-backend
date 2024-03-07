@@ -16,7 +16,7 @@ import {
  } from "../controllers/TaskController.js";
  
 import { 
-    taskCreateValidation
+    taskCreateValidation, taskUpdateValidation
  } from "../middlewares/TaskValidation.js";
 
 /* Endpoints Prefix: /api/tasks ... */
@@ -26,6 +26,6 @@ router.delete('/:id', isLogged, checkAcess, deleteTask)
 router.patch('/apply/:id', isLogged, applyOnTask)
 router.patch('/leave/:id', isLogged, leaveTask)
 router.patch('/change/:id', isLogged, changeTaskStatus)
-router.patch('/update/:id', isLogged, update)
+router.patch('/update/:id', isLogged, taskUpdateValidation(), validate, update)
 
 export default router;

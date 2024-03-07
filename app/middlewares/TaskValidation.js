@@ -7,10 +7,16 @@ export const taskCreateValidation = () =>{
             .withMessage("Nome da task é obrigatória.")
             .isLength({ min: 3 })
             .withMessage("Nome da task deve possuir no mínimo 3 caracteres."),
-        body("description")
-            .optional()
+    ]
+}
+
+export const taskUpdateValidation = () =>{
+    return [
+        body("name")
+            .isString()
+            .withMessage("Nome da task é obrigatória.")
             .isLength({ min: 3 })
-            .withMessage("Caso haja descrição, ela deve possuir no mínimo 3 caracteres."),
+            .withMessage("Nome da task deve possuir no mínimo 3 caracteres."),
     ]
 }
 

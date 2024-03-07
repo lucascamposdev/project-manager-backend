@@ -1,10 +1,18 @@
 import Task from '../models/Task.js'
 import Project from '../models/Project.js'
+import User from '../models/User.js'
 
 export const getTask = async(req, res) =>{
     const { id } = req.params
 
-    const found = await Task.findByPk(id)
+    const found = await Task.findOne({ 
+        where: { id },
+        include: [{
+            model: User, 
+            as: 'responsable', 
+            attributes: ['name', 'lastName'] 
+          }]
+    })
 
     if(!found){
         res.status(404).json({message:[ "Task não encontrada." ]})
@@ -92,7 +100,14 @@ export const leaveTask = async(req, res) =>{
 
     const { id } = req.params
     
-    const found = await Task.findByPk(id)
+    const found = await Task.findOne({ 
+        where: { id },
+        include: [{
+            model: User, 
+            as: 'responsable', 
+            attributes: ['name', 'lastName'] 
+          }]
+    })
 
     if(!found){
         res.status(404).json({message:[ "Task não encontrada." ]})
@@ -122,7 +137,14 @@ export const changeTaskStatus = async(req, res) =>{
         return
     }
     
-    const found = await Task.findByPk(id)
+    const found = await Task.findOne({ 
+        where: { id },
+        include: [{
+            model: User, 
+            as: 'responsable', 
+            attributes: ['name', 'lastName'] 
+          }]
+    })
 
     if(!found){
         res.status(404).json({message:[ "Task não encontrada." ]})
@@ -143,28 +165,24 @@ export const update = async(req, res) =>{
     const { id } = req.params
     const { name, description, priority, deliverTime } = req.body
 
-    const found = await Task.findByPk(id)
+    const found = await Task.findOne({ 
+        where: { id },
+        include: [{
+            model: User, 
+            as: 'responsable', 
+            attributes: ['name', 'lastName'] 
+          }]
+    })
 
     if(!found){
         res.status(404).json({message:[ "Task não encontrada." ]})
         return
     }
 
-    if(name){
-        found.name = name
-    }
-
-    if(description){
-        found.description = description
-    }
-
-    if(priority){
-        found.priority = priority
-    }
-
-    if(deliverTime){
-        found.deliverTime = deliverTime
-    }
+    found.name = name
+    found.description = description
+    found.deliverTime = deliverTime
+    found.priority = priority
 
     found.save()
 
